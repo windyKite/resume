@@ -1,11 +1,13 @@
-body{
-    background: black;
-    margin: 0px;
-    color: #fff;
+*{
+    margin: 0;
+    padding: 0;
 }
 a{
     color: inherit;
     text-decoration: none;
+}
+ul{
+    list-style: none;
 }
 .clearfix::after{
     display: block;
@@ -13,18 +15,17 @@ a{
     clear: both;
 }
 .topNavBar{
-    padding: 23px 16px;
+    width: 100%;
+    position: fixed;
 }
-.topNavBar > nav > ul > li{
+.navInner{
+    padding: 23px 16px; 
+}
+.topNavBar  nav  ul  li{
     float: left;
     margin: 0 17px;
 }
-.topNavBar > nav > ul{
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-}
-.topNavBar > nav > ul > li > a{
+.topNavBar  nav  ul  li  a{
     font-size: 12px;
     font-weight: bold;
     color: #B6B7B7;
@@ -38,14 +39,14 @@ a{
     padding-top: 3px;
     padding-bottom: 1px;
 }
-.topNavBar > nav > ul > li > a:hover{
+.topNavBar  nav  ul  li  a:hover{
     border-bottom: 3px solid #E86767;
 }
 .topNavBar .logo{
     float: left;
     padding: 2px 0;
 }
-.topNavBar > nav{
+.topNavBar  nav{
     float: right;
 }
 .topNavBar .logo{
@@ -58,4 +59,45 @@ a{
 }
 .topNavBar .logo .card{
     color: #9a9da2;
+}
+
+.banner{
+    height:515px;
+    background-position: center center;
+    background-size: cover;
+}
+.mask{
+    height: 515px;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+main .userCard{
+    border: 1px solid red;
+    max-width:940px;
+    margin: 0 auto;
+}
+.userCard .profile .text span{
+    background: #e6686a;
+    padding: 3px 15px;
+}
+.picture{
+    float: left;
+}
+.text{
+    float: left;
+    margin-left:65px;
+}
+.profile{
+    padding:50px;
+}
+.userCard .profile .text dt,
+.userCard .profile .text dd
+{
+    float: left;
+}
+.userCard .profile .text dt{
+    width:30%;
+}
+.userCard .profile .text dd{
+    width: 70%;
 }
