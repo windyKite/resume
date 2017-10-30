@@ -84,14 +84,14 @@ ul,ol{
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
 }
 .profile{
-    padding: 50px;
+    padding: 57px 50px 38px 50px;
 }
 .picture{
     float: left;
-    margin-right: 65px;
 }
 .text{
     float: left;
+    margin-left: 65px;
 }
 .userCard .text .welcome{
     display: inline-block;
@@ -129,13 +129,14 @@ ul,ol{
     margin-top:20px;
 }
 .userCard .text hr{
+    width: 476px;
     height: 0px;
     border: none;
     border-top: 1px solid #DEDEDE;
     margin: 23px 0px;
 }
 .userCard footer{
-    padding: 10px 0;
+    padding: 14px 0;
     background-color: #e86767;
     text-align: center;
 }
@@ -155,4 +156,24 @@ ul,ol{
     height: 30px;
     fill: #fff;
     vertical-align: top; 
+}
+.downloadResume-wrapper{
+    text-align: center; 
+    margin: 45px 0;
+}
+main .downloadResume{
+    border: 1px solid #cdcfd1;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: bold;
+    color: #3d4451;
+    background-color: #efefef;
+    padding: 16px 55px;
+    border-radius: 2px;
+}
+main .downloadResume:hover{
+    box-shadow: 0px 4px 12px 0px rgba(0,0,0,0.2);
+}
+.selfIntroduction{
+    text-align: center;
 }
