@@ -8,6 +8,7 @@
     <title>我的简历</title>
     <link rel="stylesheet" href="./css/loading.css">
     <link rel="stylesheet" href="./css/index.css">
+    
     <style type="text/css">
         .icon {
            width: 1em; height: 1em;
@@ -212,10 +213,11 @@
             }
         }
 
-        var liTags = document.querySelectorAll("[data-hasSubmenu]")
+        var liTags = document.querySelectorAll(".topNavBar nav > ul > li")
         for(let i = 0;i < liTags.length;i++){
             liTags[i].onmouseenter = function(e){       
                 liTags[i].classList.add("active")
+                console.log()
             }
             liTags[i].onmouseleave = function(){          
                 liTags[i].classList.remove("active")
