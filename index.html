@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <div id="siteWelcome" class="siteWelcome active">
+    <div  id="siteWelcome" class="siteWelcome active">
         <div class="loading"></div>
     </div>
     <div id="topNavBar" class="topNavBar">
@@ -31,13 +31,13 @@
             <nav> 
                 <ul class="clearfix">
                     <li>
-                        <a href="#about" data-anchor>关于</a>
+                        <a href="#about">关于</a>
                     </li>
                     <li>
-                        <a href="#skills" data-anchor>技能</a>
+                        <a href="#skills">技能</a>
                     </li>
                     <li data-hasSubmenu>
-                        <a href="#works" data-anchor>作品集</a>
+                        <a href="#works">作品集</a>
                         <ul class="submenu">
                             <li>作品1</li>
                             <li>作品2</li>
@@ -45,7 +45,7 @@
                         </ul>
                     </li>
                     <li data-hasSubmenu>
-                        <a id="blogs" href="#blogs" data-anchor>博客</a>
+                        <a href="#blogs">博客</a>
                         <ul class="submenu">
                             <li>博客1</li>
                             <li>博客2</li>
@@ -53,13 +53,13 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#calendar" data-anchor>日历</a>
+                        <a href="#calendar">日历</a>
                     </li>
                     <li>
-                        <a href="#contact" data-anchor>联系方式</a>
+                        <a href="#contact" >联系方式</a>
                     </li>
                     <li>
-                        <a href="#other" data-anchor>其他</a>
+                        <a href="#other" >其他</a>
                     </li>
                 </ul>
             </nav>
@@ -69,7 +69,7 @@
         <div class="mask"></div>
     </div>
     <main>
-        <div id="about" class="userCard">
+        <div data-anchor id="about" class="userCard">
             <div class="profile clearfix">
                 <div class="picture">
                     <img src="./img/avatar.jpg" alt="头像">
@@ -126,7 +126,7 @@
         </p>
         <p class="selfIntroduction">萧泳森，前端技术学习者。学无止境，永远向前。<br>技能：HTML、CSS、JavaScript、</p>
     </main>
-    <section id="skills" class="skills">
+    <section data-anchor id="skills" class="skills">
         <h2>技能</h2>
         <ul class="clearfix">
             <li>
@@ -167,7 +167,7 @@
             </li>
         </ul>
     </section>
-    <section id="works" class="portfolio">
+    <section data-anchor id="works" class="portfolio">
         <h2>作品集</h2>
         <nav>
             <ul class="clearfix">
@@ -204,32 +204,51 @@
     </section>
     <script src="//at.alicdn.com/t/font_453456_c3et2m4bdlipy14i.js"></script>
     <script>
-        document.getElementById("siteWelcome").classList.remove("active")
+        document.getElementById('siteWelcome').classList.remove('active')
         window.onscroll = function(){
             if(window.scrollY > 0) {
-                topNavBar.classList.add("sticky")
+                topNavBar.classList.add('sticky')
             } else {
-                topNavBar.classList.remove("sticky")
+                topNavBar.classList.remove('sticky')
             }
+            //  滚动时自动高亮导航栏
+            // 1. 算出导航的目标点的位置 offsetTop 并求出离滚动时距离最近的目标点 special[minIndex]
+            let specialTags = document.querySelectorAll('[data-anchor]')
+            let minIndex = 0
+            for(let i = 0;i < specialTags.length;i++){
+                if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY )) {
+                    minIndex = i;         
+                } 
+            }
+
+            // 2. 给该目标点的导航栏高亮
+            let id = specialTags[minIndex].id
+            let a = document.querySelector('[href="#' + id + '"]')
+            let li = a.parentNode
+            let allLi = li.parentNode.children
+            for(let i = 0;i < allLi.length;i++){
+                allLi[i].classList.remove('highlight')
+            }
+            li.classList.add('highlight')
         }
 
-        var liTags = document.querySelectorAll(".topNavBar nav > ul > li")
+        // li 滑动效果
+        var liTags = document.querySelectorAll('.topNavBar nav > ul > li')
         for(let i = 0;i < liTags.length;i++){
             liTags[i].onmouseenter = function(e){       
-                liTags[i].classList.add("active")
-                console.log()
+                liTags[i].classList.add('active')
             }
             liTags[i].onmouseleave = function(){          
-                liTags[i].classList.remove("active")
-            }
+                liTags[i].classList.remove('active')
+            }   
         }
         
-        let aTags = document.querySelectorAll("[data-anchor]")
-        console.log(aTags)
+        // 导航动画
+        let aTags = document.querySelectorAll('.topNavBar nav > ul > li > a')
         for(let i = 0; i < aTags.length;i++){
             aTags[i].onclick = function(e){
                 e.preventDefault()
-                let top = document.querySelector(e.target.getAttribute("href")).offsetTop
+                let top = document.querySelector(e.target.getAttribute('href')).offsetTop
                 window.scrollTo(0,top - 80)
             }
         }
