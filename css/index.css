@@ -87,7 +87,7 @@ h1,h2,h3,h4,h5,h6{
     right: 0;
     color: #000;
     animation: submenuSlide 0.4s;
-    
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 .topNavBar nav > ul > li.active .submenu{
     display: block;
