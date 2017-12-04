@@ -280,11 +280,18 @@ section.skills > ul > li > .progressBar{
     border-radius: 5px;
     margin-top: 5px;
     margin-bottom: 44px;
+    overflow: hidden;
 }
+
 section.skills > ul > li > .progressBar > .progress{
     height: 5px;
     background: #e86767;
     border-radius: 5px;
+    transform: translateX(-100%);
+    transition: all 0.5s;
+}
+section.skills.offset > ul > li > .progressBar > .progress{
+    transform: translateX(0%);
 }
 section.portfolio > nav{
     display: inline-block;

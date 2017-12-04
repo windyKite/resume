@@ -203,6 +203,7 @@
         </div>
     </section>
     <script src="//at.alicdn.com/t/font_453456_c3et2m4bdlipy14i.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
     <script>
         document.getElementById('siteWelcome').classList.remove('active')
         window.onscroll = function(){
@@ -220,7 +221,17 @@
                     minIndex = i;         
                 } 
             }
-
+            
+            // if(specialTags[minIndex].id == 'skills'){
+            //     specialTags[minIndex].classList.add('offset')
+            // }
+            console.log(specialTags[minIndex].offsetTop )
+            console.log(specialTags[minIndex].offsetHeight)
+            console.log(specialTags[minIndex].offsetTop + specialTags[minIndex].offsetHeight)
+            if(specialTags[minIndex].id == 'skills' && (specialTags[minIndex].offsetTop + specialTags[minIndex].offsetHeight) == window.scrollY){
+                specialTags[minIndex].classList.add('offset')
+            }
+            
             // 2. 给该目标点的导航栏高亮
             let id = specialTags[minIndex].id
             let a = document.querySelector('[href="#' + id + '"]')
@@ -244,14 +255,30 @@
         }
         
         // 导航动画
-        let aTags = document.querySelectorAll('.topNavBar nav > ul > li > a')
+        function animate(time) {
+            requestAnimationFrame(animate);
+            TWEEN.update(time);
+        }
+        requestAnimationFrame(animate);
+        
+        let aTags = document.querySelectorAll('.topNavBar nav > ul > li > a')    
         for(let i = 0; i < aTags.length;i++){
             aTags[i].onclick = function(e){
-                e.preventDefault()
-                let top = document.querySelector(e.target.getAttribute('href')).offsetTop
-                window.scrollTo(0,top - 80)
-            }
-        }
+                var currentTop = window.scrollY
+                var targetTop = document.querySelector(e.currentTarget.getAttribute('href')).offsetTop - 80
+                var time = Math.abs(Math.abs(currentTop - targetTop)/100*300)
+                if(time > 500){time = 500}
+                var coords = { y: currentTop }; 
+                var tween = new TWEEN.Tween(coords)
+                .to({ y: targetTop }, time) 
+                .easing(TWEEN.Easing.Quadratic.InOut) 
+                .onUpdate(function() { 
+                    window.scrollTo(0, coords.y)
+                    console.log(coords.y)
+                })
+                .start(); 
+                    }
+                }
     </script>
 </body>
 
