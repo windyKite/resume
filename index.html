@@ -222,15 +222,10 @@
                 } 
             }
             
-            // if(specialTags[minIndex].id == 'skills'){
-            //     specialTags[minIndex].classList.add('offset')
-            // }
-            console.log(specialTags[minIndex].offsetTop )
-            console.log(specialTags[minIndex].offsetHeight)
-            console.log(specialTags[minIndex].offsetTop + specialTags[minIndex].offsetHeight)
-            if(specialTags[minIndex].id == 'skills' && (specialTags[minIndex].offsetTop + specialTags[minIndex].offsetHeight) == window.scrollY){
+            if(specialTags[minIndex].id == 'skills'){
                 specialTags[minIndex].classList.add('offset')
             }
+        
             
             // 2. 给该目标点的导航栏高亮
             let id = specialTags[minIndex].id
