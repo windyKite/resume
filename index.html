@@ -205,15 +205,7 @@
     <script src="//at.alicdn.com/t/font_453456_c3et2m4bdlipy14i.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
     <script>
-        document.getElementById('siteWelcome').classList.remove('active')
-        window.onscroll = function(){
-            if(window.scrollY > 0) {
-                topNavBar.classList.add('sticky')
-            } else {
-                topNavBar.classList.remove('sticky')
-            }
-            //  滚动时自动高亮导航栏
-            // 1. 算出导航的目标点的位置 offsetTop 并求出离滚动时距离最近的目标点 special[minIndex]
+        function findClosest(){
             let specialTags = document.querySelectorAll('[data-anchor]')
             let minIndex = 0
             for(let i = 0;i < specialTags.length;i++){
@@ -236,6 +228,21 @@
                 allLi[i].classList.remove('highlight')
             }
             li.classList.add('highlight')
+        }
+
+        document.getElementById('siteWelcome').classList.remove('active')
+        
+        findClosest()
+        
+        window.onscroll = function(){
+            if(window.scrollY > 0) {
+                topNavBar.classList.add('sticky')
+            } else {
+                topNavBar.classList.remove('sticky')
+            }
+            //  滚动时自动高亮导航栏
+            // 1. 算出导航的目标点的位置 offsetTop 并求出离滚动时距离最近的目标点 special[minIndex]
+            findClosest()
         }
 
         // li 滑动效果
