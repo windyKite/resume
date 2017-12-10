@@ -69,7 +69,7 @@
         <div class="mask"></div>
     </div>
     <main>
-        <div data-anchor id="about" class="userCard">
+        <div data-anchor id="about" class="userCard offset">
             <div class="profile clearfix">
                 <div class="picture">
                     <img src="./img/avatar.jpg" alt="头像">
@@ -126,7 +126,7 @@
         </p>
         <p class="selfIntroduction">萧泳森，前端技术学习者。学无止境，永远向前。<br>技能：HTML、CSS、JavaScript、</p>
     </main>
-    <section data-anchor id="skills" class="skills">
+    <section data-anchor id="skills" class="skills offset">
         <h2>技能</h2>
         <ul class="clearfix">
             <li>
@@ -167,7 +167,7 @@
             </li>
         </ul>
     </section>
-    <section data-anchor id="works" class="portfolio">
+    <section data-anchor id="works" class="portfolio offset">
         <h2>作品集</h2>
         <nav>
             <ul class="clearfix">
@@ -223,10 +223,10 @@
             }
             
             if(specialTags[minIndex].id == 'skills'){
-                specialTags[minIndex].classList.add('offset')
+                specialTags[minIndex].classList.add('active')
             }
         
-            
+            specialTags[minIndex].classList.remove('offset')
             // 2. 给该目标点的导航栏高亮
             let id = specialTags[minIndex].id
             let a = document.querySelector('[href="#' + id + '"]')
