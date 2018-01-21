@@ -2,6 +2,12 @@
     margin: 0;
     padding: 0;
 }
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+ }
 body{
     background-color: #EFEFEF;
 }
@@ -35,7 +41,7 @@ h1,h2,h3,h4,h5,h6{
     background: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,0.35);
     color: #3d4451;
-    z-index: 1;
+    z-index: 10;
 }
 .topNavBar nav > ul > li{
     float: left;
@@ -300,55 +306,24 @@ section.skills > ul > li > .progressBar > .progress{
 section.skills.active > ul > li > .progressBar > .progress{
     transform: translateX(0%);
 }
-section.portfolio > nav{
-    display: inline-block;
-    vertical-align: top;
-    margin-bottom: 30px;
-}
-section.portfolio > nav > ul{
-    display: inline-block;
-    vertical-align: top;
-}
-section.portfolio > nav > ul > li{
-    float: left;
-    margin-right:40px; 
-    cursor: pointer;
-}
-section.portfolio > nav > ul > li:first-child{
-    margin-left: 20px;
-}
-section.portfolio > nav > ul > li:last-child{
-    margin-right: 20px;
-}
-section.portfolio > nav > .bar{
-    height: 5px;
-    margin-top: 5px;
-    border-radius: 3px;
-    background: #fff;
-}
-section.portfolio > nav > .bar > .bar-inner{
-    height: 100%;
-    background: #e86767;
-    border-radius: 3px;
-    transition: 0.5s;
-}
-section.portfolio > nav > .bar.state-1 .bar-inner{
-    margin-left: 0;
-    width: 72px; 
-}
-section.portfolio > nav > .bar.state-2 .bar-inner{
-    margin-left: 72px;
-    width: 72px; 
-}
-section.portfolio > nav > .bar.state-3 .bar-inner{
-    margin-left: 142px;
-    width: 140px; 
-}
+
 section.portfolio .works{
     position: relative;
-    
 }
-section.portfolio .works .big,
-section.portfolio .works .small{
-    position: absolute;
+section.portfolio .works .swiper-container{
+    width: 668px;
+    height: 501px;
+}
+section.portfolio .works .swiper-button-prev,
+section.portfolio .works .swiper-button-next{
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    right: 88%;
+    left: auto;
+    background-color: #fff;
+}
+section.portfolio .works .swiper-button-next{
+    right: auto;
+    left: 88%;
 }
